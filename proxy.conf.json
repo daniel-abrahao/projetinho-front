@@ -1,0 +1,12 @@
+{
+  "/api": {
+    "target": "https://api.thedogapi.com/",
+    "changeOrigin": true,
+    "pathRewrite": {
+      "^/api": ""
+    },
+    "headers": {
+      "x-api-key": ""
+    }
+  }
+}
