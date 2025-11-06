@@ -1,59 +1,27 @@
 # ProjetinhoFront
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.15.
+Projeto feito utilizando [Angular CLI](https://github.com/angular/angular-cli) versão 19.2.15.
 
-## Development server
+## Server local
 
-To start a local development server, run:
-
-```bash
-ng serve
-```
-
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+Para iniciar o desenvolvimento local:
 
 ```bash
-ng generate component component-name
+npm run start
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+Acessar no navegador `http://localhost:4200/`. A aplicação vai recarregar automaticamente quando um arquivo fonte for atualizado.
+
+## Testing
+
+O teste é feito utilizando Jest.  
+Para testar e gerar relatório de cobertura:
 
 ```bash
-ng generate --help
+npm run test:coverage
 ```
 
-## Building
+## API
 
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+O projeto utiliza API do [thedogapi.com](thedogapi.com) e configura um Proxy, redirecionando `/api` da aplicação para a API oficial (ver aquivo proxy.conf.json).
+A autenticação na API é feita pelo Proxy, utilizando a header configurada, que deve ser obtida criando uma conta gratuíta no serviço.
