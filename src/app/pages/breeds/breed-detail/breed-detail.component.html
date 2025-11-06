@@ -1,4 +1,7 @@
-<button mat-flat-button color="primary" routerLink="/breeds"><mat-icon>arrow_back</mat-icon> Voltar</button>
+<div class="actions">
+  <button mat-flat-button color="primary" routerLink="/breeds"><mat-icon>arrow_back</mat-icon> Voltar para lista</button>
+  <button mat-flat-button color="primary" [routerLink]="['/breeds', 'edit', breed?.id]"><mat-icon>edit</mat-icon> Editar</button>
+</div>
 <div class="container">
   <div class="image-container">
     <img [attr.src]="breed?.image?.url" alt="">
