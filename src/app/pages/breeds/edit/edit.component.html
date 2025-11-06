@@ -1,0 +1,55 @@
+<form [formGroup]="breedForm" (ngSubmit)="onSubmit()">
+  <mat-form-field appearance="fill">
+    <mat-label>Nome</mat-label>
+    <input matInput formControlName="name">
+    @if (breedForm.controls['name'].invalid) {
+      <mat-error>Campo obrigatório</mat-error>
+    }
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Função</mat-label>
+    <input matInput formControlName="bred_for">
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Grupo</mat-label>
+    <input matInput formControlName="breed_group">
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Vida</mat-label>
+    <input matInput formControlName="life_span">
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Temperamento</mat-label>
+    <input matInput formControlName="temperament">
+  </mat-form-field>
+
+  <div formGroupName="weight">
+    <mat-form-field appearance="fill">
+      <mat-label>Peso (Libras)</mat-label>
+      <input matInput formControlName="imperial">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Peso (Kg)</mat-label>
+      <input matInput formControlName="metric">
+    </mat-form-field>
+  </div>
+
+  <div formGroupName="height">
+    <mat-form-field appearance="fill">
+      <mat-label>Altura (Pol)</mat-label>
+      <input matInput formControlName="imperial">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Altura (cm)</mat-label>
+      <input matInput formControlName="metric">
+    </mat-form-field>
+  </div>
+
+  <div>
+    <button mat-flat-button type="submit" [disabled]="!breedForm.valid">Submit</button>
+  </div>
+</form>
