@@ -6,6 +6,10 @@
   margin-bottom: 1rem;
 }
 
+.actions {
+  display: flex;
+}
+
 .table-wrapper {
   transition: opacity 0.3s ease-in-out;
   &.loading-active {

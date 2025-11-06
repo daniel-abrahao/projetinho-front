@@ -11,16 +11,20 @@ import {MatIconModule} from '@angular/material/icon';
 import {FormControl, ReactiveFormsModule} from '@angular/forms';
 import {debounceTime, distinctUntilChanged, filter, Observable, switchMap, tap} from 'rxjs';
 import {PaginatedResponse} from '../../../core/models/paginated-response.model';
+import {MatDialog, MatDialogModule} from '@angular/material/dialog';
+import {MatButtonModule} from '@angular/material/button';
+import {DeleteConfirmationDialogComponent} from './delete-confirmation-dialog/delete-confirmation-dialog.component';
 
 @Component({
   selector: 'app-breeds',
   standalone: true,
-  imports: [MatTableModule, MatPaginatorModule, RouterLink, NgClass, MatFormFieldModule, MatIconModule, MatInputModule, ReactiveFormsModule],
+  imports: [MatTableModule, MatPaginatorModule, RouterLink, NgClass, MatFormFieldModule, MatIconModule, MatInputModule, ReactiveFormsModule, MatDialogModule, MatButtonModule],
   templateUrl: './breeds.component.html',
   styleUrl: './breeds.component.scss'
 })
 export class BreedsComponent implements OnInit {
   private readonly dogApiService = inject(DogApiService);
+  private readonly dialog = inject(MatDialog);
   pageSize = signal(5);
   pageIndex = signal(0);
   length = signal(0);
@@ -28,7 +32,7 @@ export class BreedsComponent implements OnInit {
 
   searchControl = new FormControl('');
 
-  displayedColumns: string[] = ['name', 'bred_for', 'breed_group', 'life_span', 'temperament'];
+  displayedColumns: string[] = ['name', 'bred_for', 'breed_group', 'life_span', 'temperament', 'actions'];
   dataSource = new MatTableDataSource<Breed>();
 
   ngOnInit() {
@@ -48,10 +52,23 @@ export class BreedsComponent implements OnInit {
     this.updateList();
   }
 
+  openDeleteConfirmationDialog(breed: Breed): void {
+    const dialogRef = this.dialog.open(DeleteConfirmationDialogComponent, {
+      width: '300px',
+      data: { name: breed.name }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        alert("Desculpa, a funcionalidade não está disponível na API");
+      }
+    });
+  }
+
   private updateList() {
     this.loading.set(true);
 
-    let observable: Observable<PaginatedResponse<Breed[]>>;
+    let observable: Observable<PaginatedResponse<Breed[]>>;;
     if (this.searchControl.value?.trim()) {
       observable = this.dogApiService.searchBreeds(this.searchControl.value!, this.pageSize(), this.pageIndex())
     } else {

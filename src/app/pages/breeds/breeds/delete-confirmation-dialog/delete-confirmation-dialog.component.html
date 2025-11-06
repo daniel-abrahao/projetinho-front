@@ -1,0 +1,8 @@
+<h2 mat-dialog-title>Confirmar Exclusão</h2>
+<div mat-dialog-content>
+  <p>Tem certeza que deseja excluir a raça <strong>{{data.name}}</strong>?</p>
+</div>
+<div mat-dialog-actions align="end">
+  <button mat-button (click)="onNoClick()">Cancelar</button>
+  <button mat-button color="warn" [mat-dialog-close]="true" cdkFocusInitial>Excluir</button>
+</div>
