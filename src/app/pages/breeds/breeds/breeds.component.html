@@ -1,0 +1,47 @@
+<div class="table-wrapper" [class.loading-active]="loading">
+  <table mat-table [dataSource]="dataSource">
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef> Name </th>
+      <td mat-cell *matCellDef="let element"> <a [routerLink]="[element.id]">{{element.name}}</a></td>
+    </ng-container>
+
+    <!-- Bred For Column -->
+    <ng-container matColumnDef="bred_for">
+      <th mat-header-cell *matHeaderCellDef> Bred For </th>
+      <td mat-cell *matCellDef="let element"> {{element.bred_for}} </td>
+    </ng-container>
+
+    <!-- Breed Group Column -->
+    <ng-container matColumnDef="breed_group">
+      <th mat-header-cell *matHeaderCellDef> Breed Group </th>
+      <td mat-cell *matCellDef="let element"> {{element.breed_group}} </td>
+    </ng-container>
+
+    <!-- Life Span Column -->
+    <ng-container matColumnDef="life_span">
+      <th mat-header-cell *matHeaderCellDef> Life Span </th>
+      <td mat-cell *matCellDef="let element"> {{element.life_span}} </td>
+    </ng-container>
+
+    <!-- Temperament Column -->
+    <ng-container matColumnDef="temperament">
+      <th mat-header-cell *matHeaderCellDef> Temperament </th>
+      <td mat-cell *matCellDef="let element"> {{element.temperament}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+  <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+                 (page)="handlePageEvent($event)"
+                 showFirstLastButtons
+                 [length]="length"
+                 [pageSize]="pageSize"
+                 [pageIndex]="pageIndex"
+                 aria-label="Selecione página">
+  </mat-paginator>
+</div>
+

@@ -1,0 +1,11 @@
+.table-wrapper {
+  position: relative;
+}
+
+.table-wrapper {
+  transition: opacity 0.3s ease-in-out;
+  &.loading-active {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+}
