@@ -4,7 +4,6 @@ import { DogApiService } from '../../../core/services/dog-api.service';
 import { of } from 'rxjs';
 import { PaginatedResponse } from '../../../core/models/paginated-response.model';
 import { Breed } from '../../../core/models/breed.model';
-import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 const mockPaginatedBreeds: PaginatedResponse<Breed[]> = {
   data: [{ id: 1, name: 'Beagle', bred_for: 'Hunting', breed_group: 'Hound', life_span: '12 - 15 years', temperament: 'Gentle, Intelligent' }] as Breed[],
@@ -27,7 +26,7 @@ describe('BreedsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [BreedsComponent, NoopAnimationsModule],
+      imports: [BreedsComponent],
       providers: [
         { provide: DogApiService, useClass: MockDogApiService }
       ]
