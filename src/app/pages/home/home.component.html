@@ -1,0 +1,14 @@
+<div>
+  <h2>Foto aleatória:</h2>
+  <img [attr.src]="image?.url" [attr.alt]="">
+  @for (breed of image?.breeds; track breed.id; let idx = $index) {
+    @if (image?.breeds?.length && image!.breeds!.length > 1) {
+      <h3>#{{idx}}</h3>
+    }
+    <p>
+      <b>Raça:</b> <a [routerLink]="['breeds', breed.id]">{{breed?.name}}</a><br>
+      <b>Origem:</b> {{breed?.origin ?? '?'}}<br>
+      <b>Temperamento:</b> {{breed.temperament}}
+    </p>
+  }
+</div>
