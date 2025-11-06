@@ -29,6 +29,10 @@ export class DogApiService {
       .pipe(map(DogApiService.mapToPaginatedResponse));
   }
 
+  getBreed(id: string) {
+    return this.http.get<Breed>(`${this.API_URL}/v1/breeds/${encodeURIComponent(id)}`);
+  }
+
   getRandomImage() {
     const storageKey = 'randomImage';
     const localCacheExpire = localStorage.getItem(`${storageKey}Expire`);
@@ -62,6 +66,10 @@ export class DogApiService {
       .set('page', page.toString());
     return this.http.get<Image[]>(`${this.API_URL}/v1/images/search`, { params, observe: 'response' })
       .pipe(map(DogApiService.mapToPaginatedResponse));
+  }
+
+  getImage(id: string) {
+    return this.http.get<Image>(`${this.API_URL}/v1/images/${encodeURIComponent(id)}`);
   }
 
   private static mapToPaginatedResponse<T>(response: HttpResponse<T>): PaginatedResponse<T> {

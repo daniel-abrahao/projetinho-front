@@ -1,1 +1,15 @@
-<p>breed-detail works!</p>
+<button mat-flat-button color="primary" routerLink="/breeds"><mat-icon>arrow_back</mat-icon> Voltar</button>
+<div class="container">
+  <div class="image-container">
+    <img [attr.src]="breed?.image?.url" alt="">
+  </div>
+  <div>
+    <p><b>Raça:</b> {{breed?.name}}</p>
+    <p><b>Peso:</b> {{breed?.weight?.metric}} Kg</p>
+    <p><b>Altura:</b> {{breed?.height?.metric}} m</p>
+    <p><b>Função:</b> {{breed?.bred_for}}</p>
+    <p><b>Grupo:</b> {{breed?.breed_group}}</p>
+    <p><b>Vida:</b> {{breed?.life_span}}</p>
+    <p><b>Temperamento:</b> {{breed?.temperament}}</p>
+  </div>
+</div>
