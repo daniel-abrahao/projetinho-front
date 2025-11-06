@@ -1,4 +1,12 @@
-<div class="table-wrapper" [class.loading-active]="loading">
+<div class="search-wrapper">
+  <mat-form-field appearance="outline">
+    <mat-label>Pesquisar</mat-label>
+    <input matInput placeholder="Ex.: Bulldog" [formControl]="searchControl">
+    <mat-icon matPrefix>search</mat-icon>
+  </mat-form-field>
+</div>
+
+<div class="table-wrapper" [ngClass]="{'loading-active': loading()}">
   <table mat-table [dataSource]="dataSource">
 
     <!-- Name Column -->
@@ -38,9 +46,9 @@
   <mat-paginator [pageSizeOptions]="[5, 10, 20]"
                  (page)="handlePageEvent($event)"
                  showFirstLastButtons
-                 [length]="length"
-                 [pageSize]="pageSize"
-                 [pageIndex]="pageIndex"
+                 [length]="length()"
+                 [pageSize]="pageSize()"
+                 [pageIndex]="pageIndex()"
                  aria-label="Selecione página">
   </mat-paginator>
 </div>

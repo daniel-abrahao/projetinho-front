@@ -2,6 +2,10 @@
   position: relative;
 }
 
+.search-wrapper {
+  margin-bottom: 1rem;
+}
+
 .table-wrapper {
   transition: opacity 0.3s ease-in-out;
   &.loading-active {
