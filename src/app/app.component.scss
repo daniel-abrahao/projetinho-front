@@ -1,4 +1,13 @@
+mat-toolbar {
+  display: flex;
+  gap: 1rem;
+}
+
 main {
   margin: 2rem;
   max-width: 960px;
+
+  mat-card {
+    padding: 1rem;
+  }
 }

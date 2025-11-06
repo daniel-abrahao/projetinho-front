@@ -1,9 +1,15 @@
 import {Component, inject} from '@angular/core';
-import {NavigationCancel, NavigationEnd, NavigationError, NavigationStart, Router, RouterOutlet} from '@angular/router';
+import {
+  NavigationCancel,
+  NavigationEnd,
+  NavigationError,
+  NavigationStart,
+  Router,
+  RouterLink,
+  RouterOutlet
+} from '@angular/router';
 import {MatToolbar} from '@angular/material/toolbar';
-import {MatIcon} from '@angular/material/icon';
-import {MatIconButton} from '@angular/material/button';
-import {MatMenu, MatMenuItem, MatMenuTrigger} from '@angular/material/menu';
+import {MatButton} from '@angular/material/button';
 import {MatCard} from '@angular/material/card';
 import {LoadingComponent} from './core/components/loading/loading.component';
 import {filter, map} from 'rxjs';
@@ -14,14 +20,12 @@ import {AsyncPipe} from '@angular/common';
   imports: [
     RouterOutlet,
     MatToolbar,
-    MatIcon,
-    MatIconButton,
-    MatMenuTrigger,
-    MatMenu,
-    MatMenuItem,
     MatCard,
     LoadingComponent,
-    AsyncPipe],
+    AsyncPipe,
+    RouterLink,
+    MatButton
+  ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })

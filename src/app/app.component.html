@@ -1,24 +1,8 @@
 <mat-toolbar>
-  <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon" [matMenuTriggerFor]="appMenu">
-    <mat-icon>menu</mat-icon>
-  </button>
-  <span>Doguinho</span>
+  <span>Doguinhos</span>
+  <button mat-flat-button routerLink="/">Home</button>
+  <button mat-flat-button routerLink="/breeds">Raças</button>
 </mat-toolbar>
-
-<mat-menu #appMenu="matMenu">
-  <button mat-menu-item>
-    <mat-icon>home</mat-icon>
-    <span>Home</span>
-  </button>
-  <button mat-menu-item>
-    <mat-icon>settings</mat-icon>
-    <span>Settings</span>
-  </button>
-  <button mat-menu-item>
-    <mat-icon>logout</mat-icon>
-    <span>Logout</span>
-  </button>
-</mat-menu>
 
 <main>
   <mat-card>
